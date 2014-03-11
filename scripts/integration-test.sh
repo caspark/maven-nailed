@@ -55,7 +55,7 @@ fi
 
 echo "Time of second compile was $SECOND_TIME seconds"
 
-echo "Checking that first compile took less time than second compile"
+echo "Checking that second compile took less time than first compile"
 
 if ! awk "{ exit ($FIRST_TIME <= $SECOND_TIME) }" < /dev/null ; then
   echo "First compile was faster than second compile; failing integration-test"
