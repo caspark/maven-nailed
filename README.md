@@ -38,7 +38,7 @@ To run integration tests or get a demo:
 Installing manually:
 --------------------
 
-For use on windows
+For use on Windows / other times when the packaging scripts fail.
 
 * run `mvn pre-package` to create `target/maven-nailed-1.0-SNAPSHOT.jar`
 * copy `nailgun-server-0.9.1.jar` (should be in your maven repo) and `maven-nailed-1.0-SNAPSHOT.jar` into maven's `/lib/ext/`
