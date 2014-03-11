@@ -29,14 +29,14 @@ Installing:
 
 To start using:
 
-* run `mvn package` and follow instructions
+* run `mvn package` and follow instructions under 'next steps'
 
 To run integration tests or get a demo:
 
 * run `mvn integration-test`
 
-Installing manually:
---------------------
+Installing when mvn package doesn't work:
+-----------------------------------------
 
 For use on Windows / other times when the packaging scripts fail.
 
@@ -46,5 +46,5 @@ For use on Windows / other times when the packaging scripts fail.
 * in `mvn-ng-server` change `"-Dclassworlds.conf=${M2_HOME}/bin/m2.conf"` to `"-Dclassworlds.conf=${M2_HOME}/bin/m2-ng.conf"`
 * in `m2-ng.conf` change `org.apache.maven.cli.MavenCli` to `com.asparck.maven.nailed.Server`
 * start the server with `mvn-ng-server localhost:2113`
-* download and compile the [nailgun client from source](https://raw.github.com/martylamb/nailgun/nailgun-all-$NAILGUN_VERSION/nailgun-client/ng.c) to `ng`
+* download and compile the [nailgun client from source](https://raw.github.com/martylamb/nailgun/nailgun-all-0.9.1/nailgun-client/ng.c) to `ng`
 * whenever you would call `mvn foo`, now use `ng com.asparck.maven.nailed.Client foo`
