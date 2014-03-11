@@ -1,8 +1,8 @@
 maven-nailed
 ============
 
-Speeds up Maven successive invocations by "keeping a copy of Maven running in the background" (avoiding reloading
-plugin classes and taking advantage of a warmed up jvm).
+Speeds up Maven successive invocations by "keeping a copy of Maven running in the background" using
+[nailgun](http://martiansoftware.com/nailgun/) (avoiding reloading plugin classes and taking advantage of a warmed up jvm).
 
 Once installed, you can use `nvn` instead of `mvn`; `nvn` will transparently start `nvn-server` in the background if it
 isn't already started, and then on hand all the command line args to nvn-server.
@@ -12,10 +12,10 @@ To stop `nvn-server`, run `nvn --stop` with no other args.
 Currently is built with Maven 3.0.5, but should be relatively trivial to make it switchable to other versions (pull
 requests welcome!)
 
-Forked from [nigelzor's maven-nailgun](https://github.com/nigelzor/maven-nailgun) (many thanks!)
+See also [mvnsh](https://github.com/jdillon/mvnsh), but the approach in this project doesn't replace your shell.
 
-Similar to [mvnsh](https://github.com/jdillon/mvnsh), but uses [nailgun](http://martiansoftware.com/nailgun/) to run
-Maven in the background rather than replacing your shell.
+Forked from [nigelzor's maven-nailgun](https://github.com/nigelzor/maven-nailgun) (many thanks!) to add packaging and
+tests.
 
 Prereqs:
 --------
