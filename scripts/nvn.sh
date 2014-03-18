@@ -30,7 +30,7 @@ if [[ $1 == "--stop" ]]; then
   if [[ -z $PIDS_TO_KILL ]]; then
     echo " no server was running."
   else
-    ( lsof -i tcp:$MVN_NAILGUN_PORT | awk 'NR!=1 {print $2}' | xargs kill ) && echo " stopped."
+    ( lsof -i tcp:$MVN_NAILGUN_PORT | awk 'NR!=1 {print $2}' | xargs kill -9 ) && echo " stopped."
   fi
   exit 0
 fi
