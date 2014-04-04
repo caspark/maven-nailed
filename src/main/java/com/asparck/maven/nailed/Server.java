@@ -7,6 +7,7 @@ import org.codehaus.plexus.classworlds.ClassWorld;
 import com.martiansoftware.nailgun.NGServer;
 
 public class Server {
+    private static final int MAX_IDLE_THREADS = 2;
 
     public static volatile ClassWorld currentClassWorld;
 
@@ -21,7 +22,7 @@ public class Server {
         InetAddress serverAddress = InetAddress.getByName(argParts[0]);
         int port = Integer.parseInt(argParts[1]);
 
-        NGServer server = new NGServer(serverAddress, port, NGServer.DEFAULT_SESSIONPOOLSIZE);
+        NGServer server = new NGServer(serverAddress, port, MAX_IDLE_THREADS);
         server.run();
     }
 
