@@ -11,37 +11,14 @@ public class Server {
 
     public static void main(String[] args, ClassWorld classWorld) throws Exception {
         // bah, this should just be a call to NGServer.main(), but plexus doesn't want us to just return
-        if (args.length > 1) {
-            System.err.println("only expecting one arg: [host:]port");
+        if (args.length != 1) {
+            System.err.println("Expecting exactly one arg: [host:]port");
             return;
         }
 
-        InetAddress serverAddress = null;
-        int port = NGConstants.DEFAULT_PORT;
-
-        // parse the sole command line parameter, which
-        // may be an inetaddress to bind to, a port number,
-        // or an inetaddress followed by a port, separated
-        // by a colon
-        if (args.length != 0) {
-            String[] argParts = args[0].split(":");
-            String addrPart = null;
-            String portPart = null;
-            if (argParts.length == 2) {
-                addrPart = argParts[0];
-                portPart = argParts[1];
-            } else if (argParts[0].indexOf('.') >= 0) {
-                addrPart = argParts[0];
-            } else {
-                portPart = argParts[0];
-            }
-            if (addrPart != null) {
-                serverAddress = InetAddress.getByName(addrPart);
-            }
-            if (portPart != null) {
-                port = Integer.parseInt(portPart);
-            }
-        }
+        String[] argParts = args[0].split(":");
+        InetAddress serverAddress = InetAddress.getByName(argParts[0]);
+        int port = Integer.parseInt(argParts[1]);
 
         NGServer server = new NGServer(serverAddress, port, NGServer.DEFAULT_SESSIONPOOLSIZE);
         Thread t = new Thread(server);
@@ -50,10 +27,7 @@ public class Server {
 
         int runningPort = server.getPort();
         while (runningPort == 0) {
-            try {
-                Thread.sleep(50);
-            } catch (Throwable toIgnore) {
-            }
+            Thread.sleep(50);
             runningPort = server.getPort();
         }
 
