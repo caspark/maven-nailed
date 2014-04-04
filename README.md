@@ -9,8 +9,9 @@ isn't already started, and then on hand all the command line args to nvn-server.
 
 To stop `nvn-server`, run `nvn --stop` with no other args.
 
-Currently is built with Maven 3.0.5, but should be relatively trivial to make it switchable to other versions (pull
-requests welcome!)
+Currently is built with Maven 3.0.5, but shouldn't be too hard to make it switchable to other versions (pull
+requests welcome!) Note that there's some code copy pasted and modified (1 line commented out) from Maven 3.0.5, so you'll
+need to update that most likely if you go down that path.
 
 See also [mvnsh](https://github.com/jdillon/mvnsh), but the approach in this project doesn't replace your shell.
 
@@ -23,6 +24,7 @@ Prereqs:
 * gcc compiler
 * bash and standard unix utils: nc, lsof, awk, xargs, sed, kill, cp
 * nothing listening on port 45785 (`git grep MVN_NAILGUN_PORT` to see where to change this)
+* a mvn to bootstrap with
 
 Installing:
 -----------
