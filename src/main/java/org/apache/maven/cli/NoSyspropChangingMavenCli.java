@@ -1090,7 +1090,7 @@ public class NoSyspropChangingMavenCli
         // the SystemPropertyProfileActivator. This won't harm embedding. jvz.
         // ----------------------------------------------------------------------
 
-        System.setProperty( name, value );
+        //System.setProperty( name, value );
     }
 
     static class CliRequest
